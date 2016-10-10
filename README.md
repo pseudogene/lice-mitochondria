@@ -1,5 +1,7 @@
 # lice-mitochondria
 
+[![Build Status](https://travis-ci.org/pseudogene/lice-mitochondria.svg?branch=master)](https://travis-ci.org/pseudogene/lice-mitochondria)
+
 We foster the openness, integrity, and reproducibility of scientific research.
 
 Scripts and tools used to analyse mitochondrial sequence variations between to strain of sea-lice (_Lepeophtheirus salmonis_).
