@@ -1,4 +1,4 @@
-# Copyright 2014-2016, Michaël Bekaert <michael.bekaert@stir.ac.uk>
+# Copyright 2014-2017, Michaël Bekaert <michael.bekaert@stir.ac.uk>
 #
 # This file is part of lice-mitochondria.
 #
@@ -22,6 +22,7 @@ all: base abi trimmomatic samtools bowtie clustalo gatk ratt anno
 base:
 	@apt-get update
 	@DEBIAN_FRONTEND=noninteractive apt-get install -y wget git ca-certificates unzip --no-install-recommends
+
 abi:
 	@wget https://sourceforge.net/projects/staden/files/io_lib/1.14.7/io_lib-1.14.7.tar.gz -O io_lib-1.14.7.tar.gz
 	@tar xfz io_lib-1.14.7.tar.gz
@@ -32,13 +33,6 @@ abi:
 	#https://github.com/bioperl/bioperl-ext/archive/master.zip
 	@cd bioperl-ext/Bio/SeqIO/staden; perl Makefile.PL; make; make install
 	@rm -rf bioperl-ext
-	@git clone https://github.com/agordon/libgtextutils.git
-	@cd libgtextutils; ./reconf; ./configure
-	@make -C libgtextutils -k install
-	@git clone https://github.com/agordon/fastx_toolkit.git
-	@cd fastx_toolkit; ./reconf; ./configure
-	@make -C fastx_toolkit -k install
-	@rm -rf libgtextutils fastx_toolkit
 
 bowtie:
 	@DEBIAN_FRONTEND=noninteractive apt-get install -y bowtie2
@@ -47,18 +41,7 @@ clustalo:
 	@DEBIAN_FRONTEND=noninteractive apt-get install -y clustalo
 
 samtools:
-	@DEBIAN_FRONTEND=noninteractive apt-get install -y seqtk --no-install-recommends
-	@DEBIAN_FRONTEND=noninteractive apt-get remove -y samtools
-	@git clone https://github.com/samtools/htslib.git
-	@make -C htslib
-	-@make -C htslib install
-	@git clone https://github.com/samtools/samtools.git
-	@make -C samtools
-	-@make -C samtools install
-	@git clone https://github.com/samtools/bcftools.git
-	@make -C bcftools
-	-@make -C bcftools install
-	@rm -rf bcftools samtools htslib
+	@DEBIAN_FRONTEND=noninteractive apt-get install -y seqtk samtools bcftools --no-install-recommends
 
 trimmomatic:
 	@DEBIAN_FRONTEND=noninteractive apt-get install -y trimmomatic --no-install-recommends
@@ -95,4 +78,3 @@ anno:
 	@sed -i -e 's/TGA\tStp\tO\tStop/TGA\tTrp\tW\tTryptophan/g' anno/codon.txt
 	@make -C anno -k install
 	@rm -rf anno
-

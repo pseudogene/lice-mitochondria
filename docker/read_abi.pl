@@ -51,10 +51,10 @@ if (my $inseq = $seq_in->next_seq)
     $seq_out->close();
     $start = 1 if (!defined $start);
     $end = length($inseq->length()) if (!defined $end);
-    system(  'fastx_trimmer -f '
-           . $start . ' -l '
-           . $end . '  -i '
-           . $filename . ' -o '
+    system(  'seqtk trimfq -b '
+           . $start . ' -e '
+           . ($inseq->length() - $end) . q{ }
+           . $filename . ' >'
            . $inseq->display_id
            . '.fastq');
 }

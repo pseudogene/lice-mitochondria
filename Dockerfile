@@ -1,4 +1,4 @@
-# Copyright 2014-2016, Michaël Bekaert <michael.bekaert@stir.ac.uk>
+# Copyright 2014-2017, Michaël Bekaert <michael.bekaert@stir.ac.uk>
 #
 # This file is part of lice-mitochondria.
 #
@@ -15,7 +15,7 @@
 # You should have received a copy of the GNU General Public License v3
 # along with lice-mitochondria. If not, see <http://www.gnu.org/licenses/>.
 #
-FROM ubuntu:16.04
+FROM ubuntu:16.10
 MAINTAINER Michael Bekaert <michael.bekaert@stir.ac.uk>
 LABEL description="lice-mitochondria Docker" version="1.1" Vendor="Institute of Aquaculture, University of Stirling"
 
