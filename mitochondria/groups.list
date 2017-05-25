@@ -18,11 +18,11 @@ IoA-01_F7	Naive
 IoA-01_M10	Naive
 IoA-03_F1	Resistant
 IoA-03_M1	Resistant
-JR01-O_F1	Resistant
-JR01-O_M1	Resistant
-JR01-O_M2	Resistant
-JR01-P_F2	Resistant
-JR01-P_M1	Resistant
+NA01-O_F1	Resistant
+NA01-O_M1	Resistant
+NA01-O_M2	Resistant
+NA01-P_F2	Resistant
+NA01-P_M1	Resistant
 Wild_host_F2	Naive
 Wild_host_F3	Naive
 IoA-01_F1	Naive
