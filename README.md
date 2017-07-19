@@ -9,11 +9,11 @@ Scripts and tools used to analyse mitochondrial sequence variations between to s
 
 ## Associated publication
 
->**Maternal inheritance of pyrethroid resistance in the salmon louse _Lepeophtheirus salmonis_ (Krøyer) is mediated by mitochondrial DNA**.
->
->Carmona-Antoñanzas G, Bekaert M, Humble JL, Boyd S, Roy W, Houston RD, Gharbi K, Bron JE, Sturm A
->
->_submitted_
+>**Maternal inheritance of deltamethrin resistance in the salmon louse _Lepeophtheirus salmonis_ (Krøyer) is associated with unique mtDNA haplotypes**.
+>Carmona-Antoñanzas G, Bekaert M, Humble JL, Boyd S, William Roy,Bassett DI, Houston RD, Gharbi K, Bron JE and Sturm A.
+>_PLoS ONE_. 12(7): e0180625
+
+[![DOI](https://img.shields.io/badge/DOI-10.1371%2Fjournal.pone.0180625-blue.svg)](https://doi.org/10.1371/journal.pone.0180625)
 
 
 ## Associated dataset
@@ -60,7 +60,7 @@ docker build --rm=true --file=Dockerfile -t lice-mitochondria .
 
 #### Start the docker
 
-To import and export the results of your analyse you need to link a folder to the docker. It this example your data will be store in `mitochondria` (current filesystem) which will be seem as been `/mitochondria` from within the docker by using `-v <USERFOLDER>:/mitochondria`. Similarly the raw electrophoregrams will be store in `abi` (current filesystem) which will be seem as been `/sequences` from within the docker.
+To import and export the results of your analysis you need to link a folder to the docker. It this example your data will be store in `mitochondria` (current filesystem) which will be seem as been `/mitochondria` from within the docker by using `-v <USERFOLDER>:/mitochondria`. Similarly, the raw electropherograms will be store in `abi` (current filesystem) which will be seem as been `/sequences` from within the docker.
 
 ```
 docker run -i -t --rm -v $(pwd)/abi:/sequences \
@@ -68,7 +68,7 @@ docker run -i -t --rm -v $(pwd)/abi:/sequences \
   lice-mitochondria /bin/bash
 ```
 
-#### Re-run the analysis of the associted study
+#### Re-run the analysis of the associated study
 
 Make sure your ABI/AB1 files are in `abi`, while the `mitochondria` must have the `sequences.tsv` and `groups.list` files.  `sequences.tsv` has the trimming coordinates for all ABI/AB1 file you want to use. Each line need the file prefix (filename without the `ab1` extension), the start and stop of the relevant sequence and the sample name, separated by tabulations:
 
